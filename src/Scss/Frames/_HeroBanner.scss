@@ -1,0 +1,44 @@
+#HeroBanner {
+  height: calc(100vh - 60px);
+
+  .exploration {
+    background-color: $silverPink;
+    width: 100vw;
+    height: 55%;
+    padding-top: 5vh;
+
+    h1 {
+      color: $seashell;
+      font-size: 9rem;
+    }
+  }
+
+  .illustrationFrame {
+    border: 1px solid $charleston;
+    height: 25vh;
+    width: 50vw;
+    left: 25vw;
+    top: 34vh;
+
+    .illustrationEyes {
+      background: url("../../Assets/Images/Venus.jpg") no-repeat;
+      background-position-y: 23%;
+      background-position-x: 50%;
+      height: 80%;
+      width: 95%;
+    }
+  }
+
+  .color {
+    width: 100vw;
+    height: 45%;
+
+    h1 {
+      color: $charleston;
+      font-family: "Didot";
+      font-size: 12rem;
+      letter-spacing: -1rem;
+      line-height: 12rem;
+    }
+  }
+}

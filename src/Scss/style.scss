@@ -1,0 +1,13 @@
+// Setup
+@import "./Setup/fonts";
+@import "./Setup/variables";
+@import "./Setup/utils";
+@import "./Setup/base";
+
+// Pages
+@import "./Pages/Homepage";
+// Frames
+@import "./Frames/HeroBanner";
+@import "./Frames/Presentation";
+// Components
+@import "./Components/Navbar";

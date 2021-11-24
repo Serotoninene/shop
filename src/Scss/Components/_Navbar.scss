@@ -1,0 +1,32 @@
+#Navbar {
+  padding: 30px 50px;
+  height: 60px;
+  background-color: $silverPink;
+
+  * {
+    font-family: "Didot";
+    color: $seashell;
+    font-style: italic;
+  }
+
+  h1 {
+    width: 33vw;
+    font-size: 40px;
+  }
+
+  ul {
+    width: 33vw;
+    li {
+      font-size: 1.2rem;
+      margin-right: 50px;
+    }
+  }
+
+  .caddie {
+    width: 33vw;
+    img {
+      width: 35px;
+      color: $seashell;
+    }
+  }
+}

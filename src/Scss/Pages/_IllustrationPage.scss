@@ -1,0 +1,59 @@
+#IllustrationPage {
+  background-color: $seashell;
+  top: 60px;
+  position: fixed;
+  overflow: hidden;
+
+  .frameContainer {
+    height: calc(100vh - 60px);
+    width: 100vw;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: 22vw;
+    background-position-y: 20px;
+    img {
+      width: 80vw;
+    }
+  }
+
+  .CTA-container {
+    background-color: $seashell;
+    padding: 50px 30px;
+    width: 35vw;
+    top: calc(100% - 110px);
+    left: 30px;
+
+    h2 {
+      font-size: 3rem;
+    }
+
+    p {
+      font-family: "Didot";
+      font-family: 1rem;
+      line-height: 1.7rem;
+      margin: 50px 0;
+    }
+
+    #Button {
+      padding: 20px auto;
+    }
+  }
+
+  .img {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+
+  .mainImg {
+    width: 40vw;
+    height: 95%;
+    bottom: 2%;
+    left: 40vw;
+    overflow-y: hidden;
+  }
+
+  .secondaryImg {
+    width: 25vw;
+    top: 100%;
+    left: 70vw;
+  }
+}

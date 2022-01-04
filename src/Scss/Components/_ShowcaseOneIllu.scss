@@ -9,6 +9,10 @@
 
   .illustrationPresentation {
     width: 40vw;
-    height: 80vh;
+    height: 70vh;
   }
+}
+
+#ShowcaseOneIllu:nth-child(2n) {
+  flex-direction: row-reverse;
 }

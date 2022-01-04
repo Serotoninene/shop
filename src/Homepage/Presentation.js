@@ -1,4 +1,6 @@
 import React from "react";
+// React Router Dom
+import { Link } from "react-router-dom";
 
 export default function Presentation() {
   return (
@@ -7,18 +9,18 @@ export default function Presentation() {
         <h2>
           Le bal <br />
           des <br />
-          <span>vampires</span>
-        </h2>
+          <span> vampires </span>{" "}
+        </h2>{" "}
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-          purus tellus, cursus ut feugiat vel, convallis in nisl. Aenean lacinia
-          justo metus. Quisque ut aliquam sem. Nulla et porta mauris. Donec
-          libero nunc, cursus vitae mauris vitae, ullamcorper tincidunt felis.
-        </p>
-      </article>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus
+          purus tellus, cursus ut feugiat vel, convallis in nisl.Aenean lacinia
+          justo metus.Quisque ut aliquam sem.Nulla et porta mauris.Donec libero
+          nunc, cursus vitae mauris vitae, ullamcorper tincidunt felis.{" "}
+        </p>{" "}
+      </article>{" "}
       <section className="flex justify-center">
-        <a href="/gallery"> View Gallery</a>
-      </section>
+        <Link to="/illustrations"> View Gallery </Link>{" "}
+      </section>{" "}
     </div>
   );
 }

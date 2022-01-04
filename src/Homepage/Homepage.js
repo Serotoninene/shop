@@ -3,6 +3,7 @@ import React from "react";
 import HeroBanner from "./HeroBanner.js";
 import IllustrationShowcase from "./IllustrationShowcase.js";
 import Presentation from "./Presentation.js";
+import Footer from "../Components/Footer.js";
 
 export default function Homepage() {
   return (
@@ -10,6 +11,7 @@ export default function Homepage() {
       <HeroBanner />
       <Presentation />
       <IllustrationShowcase />
+      <Footer />
     </div>
   );
 }

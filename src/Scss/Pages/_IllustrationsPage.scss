@@ -1,0 +1,29 @@
+#IllustrationsPage {
+  position: fixed;
+  width: 100vw;
+  height: calc(100vh - 60px);
+  top: 60px;
+  left: 0;
+  background-color: $seashell;
+  padding: 20px 50px;
+  overflow: hidden;
+
+  .titleArchive {
+    padding-top: 20px;
+    .line {
+      height: 1px;
+      width: 40%;
+      background-color: $spaceCadet;
+    }
+    h3 {
+      margin: 20px 0;
+    }
+  }
+
+  .illustrationsDisplay {
+    top: 22vh;
+    left: 50px;
+    padding-top: 20px;
+    width: auto;
+  }
+}

@@ -21,11 +21,10 @@ export default function IllustrationDisplay(props) {
             setHovered(false);
           }}
         >
-          <ProgressiveImage src={illu.img} placeholder={illu.compressedImg}>
-            {(src) => (
-              <img src={src} className={`img-fluid ${hovered ? "blur" : ""}`} />
-            )}
-          </ProgressiveImage>
+          <img
+            src={illu.img}
+            className={`img-fluid ${hovered ? "blur" : ""}`}
+          />
           <div
             className={` ${
               hovered

@@ -22,14 +22,14 @@ export default function IllustrationsPage() {
       xPercent: -76,
     });
     // We gather all the images inside an array
-    const illus = gsap.utils.toArray(".illustration img");
-    tl.to(
-      illus,
-      {
-        scale: 1.5,
-      },
-      "<"
-    );
+    // const illus = gsap.utils.toArray(".illustration img");
+    // tl.to(
+    //   illus,
+    //   {
+    //     scale: 1.5,
+    //   },
+    //   "<"
+    // );
 
     ScrollTrigger.create({
       animation: tl,

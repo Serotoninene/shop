@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 // React Router
 import { useParams } from "react-router-dom";
 // ProgressiveImage : allows to load a compressed version of an image before the good quality one -> improves performance
 import ProgressiveImage from "react-progressive-image";
+//  Stripe
+import StripeCheckout from "react-stripe-checkout";
 // Gsap
 import gsap, { Power1, Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/all";
@@ -22,10 +24,19 @@ export default function IllustrationPage(props) {
     }
   });
 
+  const product = {
+    name: illustrationDisplayed.title,
+    price: illustrationDisplayed.price,
+    productBy: "Serotoninene",
+  };
+
   useEffect(() => {
     // Triggers
     const tl = gsap.timeline({
-      defaults: { ease: Power3.easeOut, duration: 3 },
+      defaults: {
+        ease: Power3.easeOut,
+        duration: 3,
+      },
     });
     tl.to(
       ".CTA-container",
@@ -43,7 +54,11 @@ export default function IllustrationPage(props) {
     );
     tl.to(
       ".mainImg",
-      { yPercent: -200, ease: Power3.easeOut, duration: 5 },
+      {
+        yPercent: -200,
+        ease: Power3.easeOut,
+        duration: 5,
+      },
       "<"
     );
 
@@ -60,6 +75,25 @@ export default function IllustrationPage(props) {
       pinSpacing: false,
     });
   }, []);
+
+  const makePayment = (token) => {
+    const body = {
+      token: token,
+      product: product,
+    };
+    const headers = { "Content-Type": "application/json" };
+    return fetch(`http://localhost:8282/payment`, {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify(body),
+    })
+      .then((response) => {
+        console.log("RESPONSE : ", response);
+        const { status } = response;
+        console.log("STATUS : ", status);
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div id="IllustrationPage" className="relative">
@@ -84,7 +118,16 @@ export default function IllustrationPage(props) {
           purus tellus, cursus ut feugiat vel, convallis in nisl.Aenean lacinia
           justo metus.Quisque ut aliquam sem.{" "}
         </p>{" "}
-        <Button content="Purchase a print" linkTo="/payment" />
+        <StripeCheckout
+          stripeKey={process.env.REACT_APP_KEY}
+          token={makePayment}
+          name="Buy Product"
+          amount={product.price * 100}
+          shippingAddress
+          billingAddress
+        >
+          <Button content="Purchase a print" />
+        </StripeCheckout>
       </div>{" "}
       <div className="mainImg img absolute">
         <ProgressiveImage
@@ -98,7 +141,7 @@ export default function IllustrationPage(props) {
               className="img-fluid"
             />
           )}
-        </ProgressiveImage>
+        </ProgressiveImage>{" "}
       </div>{" "}
       <div className="secondaryImg img absolute">
         <img

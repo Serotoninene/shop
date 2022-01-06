@@ -1,6 +1,5 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 # env file
-/.env
 
 # dependencies
 /node_modules
@@ -21,8 +20,9 @@
 .env.production.local
 
 # Assets
-/src/Images
+src/Assets/Images
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.env

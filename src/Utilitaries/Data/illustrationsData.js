@@ -42,7 +42,7 @@ import venusMockUpCompressed from "../../Assets/Images/mockupCompressed/venus.pn
 import yeuxCoulentMockUpCompressed from "../../Assets/Images/mockupCompressed/yeuxCoulent.png"
 import regardBrulantMockUpCompressed from "../../Assets/Images/mockupCompressed/regardBrulant.png"
 
-
+const price = 20;
 
 export const illustrationsData = [, {
     'id': 1,
@@ -50,7 +50,8 @@ export const illustrationsData = [, {
     'img': blaspheme,
     'mockUp': blasphemeMockUp,
     'compressedImg': blasphemeCompressed,
-    'compressedMockUp': blasphemeMockUpCompressed
+    'compressedMockUp': blasphemeMockUpCompressed,
+    'price': price,
 
   },
   {
@@ -59,7 +60,8 @@ export const illustrationsData = [, {
     'img': chuter,
     'mockUp': chuterMockUp,
     'compressedImg': chuterCompressed,
-    'compressedMockUp': chuterMockUpCompressed
+    'compressedMockUp': chuterMockUpCompressed,
+    'price': price,
 
   },
   {
@@ -68,7 +70,8 @@ export const illustrationsData = [, {
     'img': dosNu,
     'mockUp': dosNuMockUp,
     'compressedImg': dosNuCompressed,
-    'compressedMockUp': dosNuMockUpCompressed
+    'compressedMockUp': dosNuMockUpCompressed,
+    'price': price,
 
   },
   {
@@ -77,7 +80,8 @@ export const illustrationsData = [, {
     'img': eyepatch,
     'mockUp': eyepatchMockUp,
     'compressedImg': eyepatchCompressed,
-    'compressedMockUp': eyepatchMockUpCompressed
+    'compressedMockUp': eyepatchMockUpCompressed,
+    'price': price,
 
   },
   {
@@ -86,7 +90,8 @@ export const illustrationsData = [, {
     'img': almostNaked,
     'mockUp': almostNakedMockUp,
     'compressedImg': almostNakedCompressed,
-    'compressedMockUp': almostNakedMockUpCompressed
+    'compressedMockUp': almostNakedMockUpCompressed,
+    'price': price,
 
   },
   {
@@ -95,7 +100,8 @@ export const illustrationsData = [, {
     'img': geisha,
     'mockUp': geishaMockUp,
     'compressedImg': geishaCompressed,
-    'compressedMockUp': geishaMockUpCompressed
+    'compressedMockUp': geishaMockUpCompressed,
+    'price': price,
 
   },
   {
@@ -104,7 +110,8 @@ export const illustrationsData = [, {
     'img': yeuxCoulent,
     'mockUp': yeuxCoulentMockUp,
     'compressedImg': yeuxCoulentCompressed,
-    'compressedMockUp': yeuxCoulentMockUpCompressed
+    'compressedMockUp': yeuxCoulentMockUpCompressed,
+    'price': price,
 
   },
   {
@@ -113,7 +120,8 @@ export const illustrationsData = [, {
     'img': regardBrulant,
     'mockUp': regardBrulantMockUp,
     'compressedImg': regardBrulantCompressed,
-    'compressedMockUp': regardBrulantMockUpCompressed
+    'compressedMockUp': regardBrulantMockUpCompressed,
+    'price': price,
 
   },
   {
@@ -122,7 +130,7 @@ export const illustrationsData = [, {
     'img': venus,
     'mockUp': venusMockUp,
     'compressedImg': venusCompressed,
-    'compressedMockUp': venusMockUpCompressed
-
+    'compressedMockUp': venusMockUpCompressed,
+    'price': price,
   }
 ]

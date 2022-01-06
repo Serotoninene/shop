@@ -1,5 +1,6 @@
 // React-Router Components
 import { Routes, Route } from "react-router-dom";
+
 // Frames
 import Homepage from "./Homepage/Homepage";
 import IllustrationsPage from "./IllustrationsPage/IllustrationsPage";
@@ -10,8 +11,6 @@ import Navbar from "./Components/Navbar";
 import "./Scss/style.scss";
 
 function App() {
-  // const ids = [1, 2, 3, 4, 5, 6];
-
   return (
     <div id="App">
       <Navbar />
@@ -19,7 +18,7 @@ function App() {
         <Route exact path="/" element={<Homepage />} />{" "}
         <Route exact path="/illustrations" element={<IllustrationsPage />} />{" "}
         <Route exact path="/illustrations/:id" element={<IllustrationPage />} />{" "}
-      </Routes>{" "}
+      </Routes>
     </div>
   );
 }

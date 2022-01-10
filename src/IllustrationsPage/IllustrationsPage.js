@@ -21,22 +21,12 @@ export default function IllustrationsPage() {
     tl.to(".illustrationsDisplay", {
       xPercent: -76,
     });
-    // We gather all the images inside an array
-    // const illus = gsap.utils.toArray(".illustration img");
-    // tl.to(
-    //   illus,
-    //   {
-    //     scale: 1.5,
-    //   },
-    //   "<"
-    // );
 
     ScrollTrigger.create({
       animation: tl,
       trigger: "#App",
       start: "top top",
       end: "bottom+=1000vh top",
-      markers: true,
       id: "illustrations slide",
       scrub: true,
       pin: true,
@@ -49,7 +39,7 @@ export default function IllustrationsPage() {
     <div id="IllustrationsPage" className="relative">
       <div className="titleArchive flex-column align-center">
         <div className="line"> </div>{" "}
-        <h3 className="text-center"> Illustration Archive </h3>{" "}
+        <h3 className="text-center"> Illustrations</h3>{" "}
         <div className="line"> </div>{" "}
       </div>{" "}
       <div className="illustrationsDisplay flex absolute">

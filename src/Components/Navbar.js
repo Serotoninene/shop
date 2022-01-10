@@ -10,6 +10,7 @@ import caddieBlack from "../Assets/Icons/caddie_dark.svg";
 export default function Navbar() {
   const [lightMode, setLightMode] = useState(false);
   const [cartOut, setCartOut] = useState(false);
+  const [hover, setHover] = useState(false);
   let location = useLocation();
 
   useEffect(() => {

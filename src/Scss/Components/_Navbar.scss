@@ -19,6 +19,12 @@
     li {
       font-size: 1.2rem;
       margin-right: 50px;
+
+      a:hover {
+        color: $spaceCadet;
+        font-style: normal;
+        font-weight: 600;
+      }
     }
   }
 
@@ -36,5 +42,9 @@
 
   * {
     color: $cinerous;
+  }
+
+  ul li a:hover {
+    color: $spaceCadet;
   }
 }

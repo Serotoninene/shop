@@ -65,7 +65,6 @@ export default function IllustrationPage(props) {
     ScrollTrigger.create({
       animation: tl,
       trigger: "#App",
-      markers: true,
       start: "top top",
       end: `bottom+=200vh bottom`,
       id: "illustrationPageAnim",
@@ -81,7 +80,9 @@ export default function IllustrationPage(props) {
       token: token,
       product: product,
     };
-    const headers = { "Content-Type": "application/json" };
+    const headers = {
+      "Content-Type": "application/json",
+    };
     return fetch(`http://localhost:8282/payment`, {
       method: "POST",
       headers: headers,
@@ -108,8 +109,8 @@ export default function IllustrationPage(props) {
               alt="the illustration shown in a frame"
               className="img-fluid"
             />
-          )}
-        </ProgressiveImage>
+          )}{" "}
+        </ProgressiveImage>{" "}
       </div>{" "}
       <div className="absolute CTA-container flex-column">
         <h2> Regard Brulant - A4 </h2>{" "}
@@ -127,7 +128,7 @@ export default function IllustrationPage(props) {
           billingAddress
         >
           <Button content="Purchase a print" />
-        </StripeCheckout>
+        </StripeCheckout>{" "}
       </div>{" "}
       <div className="mainImg img absolute">
         <ProgressiveImage
@@ -140,7 +141,7 @@ export default function IllustrationPage(props) {
               alt="amazing illustration of a girl with an eyepatch"
               className="img-fluid"
             />
-          )}
+          )}{" "}
         </ProgressiveImage>{" "}
       </div>{" "}
       <div className="secondaryImg img absolute">

@@ -10,7 +10,13 @@
     h1 {
       color: $seashell;
       font-size: 9rem;
+      position: relative;
+      height: 50%;
     }
+  }
+
+  span {
+    display: inline-block;
   }
 
   .illustrationFrame {
@@ -19,6 +25,7 @@
     width: 50vw;
     left: 25vw;
     top: 34vh;
+    z-index: 1;
 
     .illustrationEyes {
       background: url("../../Assets/Images/Venus.jpg") no-repeat;
@@ -39,6 +46,11 @@
       font-size: 12rem;
       letter-spacing: -1rem;
       line-height: 12rem;
+      padding-right: 2%;
+
+      span {
+        font-family: "Didot";
+      }
     }
   }
 }

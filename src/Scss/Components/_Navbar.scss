@@ -1,7 +1,9 @@
-#Navbar {
+#Navbar,
+.Navbar2 {
   padding: 30px 50px;
   height: 60px;
-  background-color: $silverPink;
+  background-color: $seashell;
+  z-index: 2;
 
   * {
     font-family: "Didot";
@@ -37,7 +39,8 @@
   }
 }
 
-#Navbar.lightMode {
+#Navbar.lightMode,
+.Navbar2.lightMode {
   background-color: $seashell;
 
   * {
@@ -47,4 +50,9 @@
   ul li a:hover {
     color: $spaceCadet;
   }
+}
+
+.Navbar2 {
+  position: absolute;
+  top: 0;
 }

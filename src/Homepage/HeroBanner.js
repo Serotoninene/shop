@@ -3,68 +3,79 @@ import React, { useEffect } from "react";
 import gsap, { Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { EasePack } from "gsap/EasePack";
-// Component
-import Circle from "./Circle";
+// Utils
+import chunkifyArray from "../Utilitaries/Tools/chunkifyArray";
 
 export default function HeroBanner() {
   useEffect(() => {
+    // Fragment the title into letters
+    // let titleHTML = document.querySelector(".title").innerHTML;
+    // titleHTML = title.split("");
+
+    let textWrapper = document.querySelector(".title");
+    textWrapper.innerHTML = textWrapper.textContent.replace(
+      /\S/g,
+      "<span class='letter'>$&</span>"
+    );
+
+    console.log(textWrapper);
+
     gsap.registerPlugin(EasePack);
     gsap.registerPlugin(ScrollTrigger);
-    console.log(EasePack);
     let tl = gsap.timeline({
       ease: Power3.easeOut,
     });
-    let titles = gsap.utils.toArray(".title");
+    let titleLetters = gsap.utils.toArray(".letter");
     let circles = gsap.utils.toArray(".Circle");
 
-    // Introduction animation
-    tl.from(".illustrationFrame", {
-      top: "10vh",
-      left: "5vw",
-      width: "90vw",
-      height: "80vh",
-      duration: 1,
-      ease: EasePack.SlowMo(0, 0.5),
-    });
-    tl.from(titles, {
-      yPercent: 200,
-      opacity: 0,
+    /*
+     * INTRODUCTION ANIMATION
+     */
+
+    // Introduction of the letters
+    tl.from(titleLetters, {
+      yPercent: 100,
+      rotation: 10,
+      stagger: 0.04,
       duration: 0.5,
     });
-    tl.from(
-      circles,
+    // Stretching and replacing of the title
+    tl.to(
+      ".titleContainer",
       {
-        y: "100vh",
-        opacity: 0,
+        scaleY: 4,
+        yPercent: -100,
       },
       "<"
     );
-
     tl.to(
-      "#HeroBanner",
+      ".titleContainer",
       {
-        y: "-40vh",
-        ease: Power3.easeOut,
+        scaleY: 1,
+        yPercent: -200,
+      },
+      ">1"
+    );
+    // At the same time appearance of the picture/color/I still don't really know
+    tl.to(
+      ".subPicture",
+      {
+        yPercent: -60,
       },
       "<"
     );
   }, []);
 
   return (
-    <div id="HeroBanner" className="flex-column justify-between relative">
-      <div className="exploration flex justify-center">
-        <h1 className="hidden">
-          <span className="title"> An Exploration </span>{" "}
-        </h1>{" "}
-      </div>{" "}
-      <div className="illustrationFrame absolute flex justify-center align-center">
-        <div className="illustrationEyes"> </div>{" "}
-      </div>{" "}
-      <div className="color flex justify-center align-end">
-        <h1 className="hidden">
-          <span className="title"> SEROTONINENEN </span>{" "}
-        </h1>{" "}
-      </div>
+    <div
+      id="HeroBanner"
+      className="flex-column justify-end align-center hidden relative"
+    >
+      <h1 className="titleContainer relative hidden">
+        <span className="title">SEROTONINE</span>{" "}
+      </h1>{" "}
+      {/* Picture beneath the title, appearing after the first animation */}
+      <div className="subPicture absolute"></div>
     </div>
   );
 }

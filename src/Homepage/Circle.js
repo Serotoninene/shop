@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from "react";
 import gsap, { Power3 } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
+// Function used to display random circles around the page, wanted to make them react with the mouse creating a kind of parallax
+// but slows the app drastically. Gonna remove them for now
 export default function Circle(props) {
   const circleRef = useRef();
   let { numero } = props;
@@ -18,22 +20,6 @@ export default function Circle(props) {
     "#5A3B36",
   ];
   let colorPicker = Math.floor(Math.random() * colors.length);
-
-  // useEffect(() => {
-  //   gsap.registerPlugin(ScrollTrigger);
-  //   gsap.to(circleRef.current, {
-  //     y: "-5vh",
-  //     ease: Power3.easeInOut,
-  //     scrollTrigger: {
-  //       trigger: "#HeroBanner",
-  //       start: "top-=60px top",
-  //       end: "bottom top",
-  //       id: "circles",
-  //       markers: true,
-  //       scrub: true,
-  //     },
-  //   });
-  // }, []);
 
   return (
     <div

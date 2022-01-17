@@ -45,14 +45,6 @@ export default function HeroBanner() {
       {
         y: "-40vh",
         ease: Power3.easeOut,
-        // scrollTrigger: {
-        //   trigger: "#HeroBanner",
-        //   start: "top+=1 top",
-        //   end: "bottom top",
-        //   markers: true,
-        //   scrub: 1,
-        //   id: "tentativedeparallax",
-        // },
       },
       "<"
     );
@@ -73,16 +65,6 @@ export default function HeroBanner() {
           <span className="title"> SEROTONINENEN </span>{" "}
         </h1>{" "}
       </div>
-      {/* Group of parallaxing circles boiiii */} <Circle />
-      <Circle />
-      <Circle />
-      <Circle />
-      <Circle />
-      <Circle />
-      <Circle />
-      <Circle />
-      <Circle />
-      <Circle />
     </div>
   );
 }

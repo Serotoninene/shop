@@ -3,14 +3,23 @@
 
   h1 {
     color: $charleston;
-    font-size: 13rem;
+    font-size: 11rem;
     letter-spacing: -1rem;
     line-height: 13rem;
-    padding-right: 2%;
-    font-family: "Avenir";
+    height: 30%;
 
     .letter {
+      font-family: "Didot";
+      font-style: italic;
       display: inline-block;
+    }
+
+    .letter:nth-last-child(1),
+    .letter:nth-last-child(2) {
+      font-family: "Avenir";
+      font-size: 3rem;
+      font-style: normal;
+      letter-spacing: -0.05rem;
     }
   }
 
@@ -18,6 +27,7 @@
     top: 100vh;
     width: 100%;
     height: 100vh;
+    outline: none;
     background-color: $cinerous;
   }
 }

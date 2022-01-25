@@ -33,7 +33,7 @@ export default function Navbar() {
         ease: Power3.easeIn,
         duration: 0.5,
         scrollTrigger: {
-          markers: true,
+          // markers: true,
           id: "Navbar",
           start: "top+=100px top",
         },

@@ -1,37 +1,34 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Suspense } from "react";
 // gsap
 import gsap, { Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { EasePack } from "gsap/EasePack";
-// Utils
-import chunkifyArray from "../Utilitaries/Tools/chunkifyArray";
+// React Three Fiber
+import { Canvas } from "@react-three/fiber";
+// 3D Elements
+import WaveShaderMaterial from "../Utilitaries/Shaders/WaveShaderMaterial";
+import WavyPlane from "../Utilitaries/3DElements/WavyPlane";
 
 export default function HeroBanner() {
+  new WaveShaderMaterial();
+
   useEffect(() => {
     // Fragment the title into letters
-    // let titleHTML = document.querySelector(".title").innerHTML;
-    // titleHTML = title.split("");
-
     let textWrapper = document.querySelector(".title");
     textWrapper.innerHTML = textWrapper.textContent.replace(
       /\S/g,
       "<span class='letter'>$&</span>"
     );
-
-    console.log(textWrapper);
-
     gsap.registerPlugin(EasePack);
     gsap.registerPlugin(ScrollTrigger);
     let tl = gsap.timeline({
       ease: Power3.easeOut,
     });
     let titleLetters = gsap.utils.toArray(".letter");
-    let circles = gsap.utils.toArray(".Circle");
 
     /*
      * INTRODUCTION ANIMATION
      */
-
     // Introduction of the letters
     tl.from(titleLetters, {
       yPercent: 100,
@@ -43,8 +40,8 @@ export default function HeroBanner() {
     tl.to(
       ".titleContainer",
       {
-        scaleY: 4,
-        yPercent: -100,
+        scaleY: 5,
+        yPercent: -200,
       },
       "<"
     );
@@ -66,16 +63,36 @@ export default function HeroBanner() {
     );
   }, []);
 
+  // Setting up of the 3D Scene with threejs
+
+  const Scene = () => {
+    return (
+      <Canvas
+        camera={{
+          fov: 10,
+          position: [0, 0, 2],
+        }}
+      >
+        <pointLight position={[10, 10, 10]} />{" "}
+        <Suspense fallback={null}>
+          <WavyPlane />
+        </Suspense>{" "}
+      </Canvas>
+    );
+  };
+
   return (
     <div
       id="HeroBanner"
       className="flex-column justify-end align-center hidden relative"
     >
-      <h1 className="titleContainer relative hidden">
-        <span className="title">SEROTONINE</span>{" "}
+      <h1 className="titleContainer relative hidden flex justify-center">
+        <span className="title"> SEROTONINEne </span>{" "}
       </h1>{" "}
-      {/* Picture beneath the title, appearing after the first animation */}
-      <div className="subPicture absolute"></div>
+      {/* Picture beneath the title, appearing after the first animation */}{" "}
+      <div className="subPicture absolute">
+        <Scene />
+      </div>{" "}
     </div>
   );
 }

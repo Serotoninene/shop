@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 // Frames
 import Homepage from "./Homepage/Homepage";
+import Test from "./Test3D/Test";
 import IllustrationsPage from "./IllustrationsPage/IllustrationsPage";
 import IllustrationPage from "./IllustrationPage/IllustrationPage";
 // Components
@@ -16,9 +17,10 @@ function App() {
       <Navbar />
       <Routes>
         <Route exact path="/" element={<Homepage />} />{" "}
+        <Route exact path="/test" element={<Test />} />{" "}
         <Route exact path="/illustrations" element={<IllustrationsPage />} />{" "}
         <Route exact path="/illustrations/:id" element={<IllustrationPage />} />{" "}
-      </Routes>
+      </Routes>{" "}
     </div>
   );
 }

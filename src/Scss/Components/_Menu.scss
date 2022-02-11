@@ -1,0 +1,44 @@
+#Menu {
+  .menu {
+    background-color: $silverPink;
+    top: 0;
+    left: 100vw;
+    width: 100vw;
+    height: 100vh;
+    cursor: auto;
+    padding: 40vh 0 5vh 60px;
+
+    a {
+      color: $seashell;
+
+      &:hover {
+        color: $charleston;
+      }
+    }
+
+    span {
+      display: inline-block;
+      font-family: "NewYork";
+      font-size: 5rem;
+      transform: translate(0, 100%);
+    }
+
+    .pictureContainer {
+      width: 30vw;
+      right: 60px;
+      top: 60px;
+
+      img {
+        transform: translate(0, 110%);
+      }
+    }
+  }
+
+  .firstSlider {
+    background-color: $cinerous;
+    top: 0;
+    left: 100vw;
+    width: 100vw;
+    height: 100vh;
+  }
+}

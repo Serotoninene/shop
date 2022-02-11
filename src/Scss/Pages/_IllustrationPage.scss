@@ -1,11 +1,10 @@
 #IllustrationPage {
   background-color: $seashell;
-  top: 60px;
   position: fixed;
   overflow: hidden;
 
   .frameContainer {
-    height: calc(100vh - 60px);
+    height: 100vh;
     width: 100vw;
     background-size: contain;
     background-repeat: no-repeat;

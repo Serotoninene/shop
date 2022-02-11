@@ -1,7 +1,7 @@
-#ShowcaseOneIllu {
+.ShowcaseOneIllu {
   height: 100vh;
   width: 100vw;
-  padding: 0 50px;
+  padding: 0 100px;
 
   .illustration {
     width: 33vw;
@@ -13,6 +13,6 @@
   }
 }
 
-#ShowcaseOneIllu:nth-child(2n) {
+.ShowcaseOneIllu:nth-child(2n) {
   flex-direction: row-reverse;
 }

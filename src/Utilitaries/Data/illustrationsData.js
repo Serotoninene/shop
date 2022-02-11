@@ -46,7 +46,7 @@ const price = 20;
 
 export const illustrationsData = [, {
     'id': 1,
-    'title': "Blasphème",
+    'title': "Blaspheme",
     'img': blaspheme,
     'mockUp': blasphemeMockUp,
     'compressedImg': blasphemeCompressed,

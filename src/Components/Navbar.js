@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 // React Router
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "wouter";
 //Components
 import SideBarCart from "./SideBarCart";
 import Burger from "./Burger";
@@ -51,7 +51,7 @@ export default function Navbar() {
         id="Navbar"
         className="flex justify-between align-center "
       >
-        <Link to="/" className="navbarLink">
+        <Link href="/" className="navbarLink">
           <div className="logoSerotoninene">
             <img
               src={logoSerotoninene}
@@ -68,7 +68,7 @@ export default function Navbar() {
         ref={navbarRef2}
         className="Navbar2 flex justify-between align-center"
       >
-        <Link to="/" className="navbarLink">
+        <Link href="/" className="navbarLink">
           <div className="logoSerotoninene">
             <img
               src={logoSerotoninene}

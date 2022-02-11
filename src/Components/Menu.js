@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "wouter";
 // gsap
 import gsap, { Power3 } from "gsap";
 // Assets
@@ -58,31 +58,34 @@ export default function Menu(props) {
       <div className="firstSlider absolute" ref={firstSliderRef}></div>
       <div className="menu absolute flex-column justify-between" ref={menuRef}>
         <Link
-          to="/"
-          className="hidden"
+          href="/"
           onClick={() => {
             setOpen(false);
           }}
         >
-          <span ref={illustrationLinkRef}>1/ Homepage</span>
+          <div className="hidden link">
+            <span ref={illustrationLinkRef}>1/ Homepage</span>
+          </div>
         </Link>
         <Link
-          to="/illustrations"
-          className="hidden"
+          href="/illustrations"
           onClick={() => {
             setOpen(false);
           }}
         >
-          <span ref={aboutLinkRef}>2/ Illustrations</span>
+          <div className="hidden link">
+            <span ref={aboutLinkRef}>2/ Illustrations</span>
+          </div>
         </Link>
         <Link
-          to="/illustrations/2"
-          className="hidden"
+          href="/illustrations/2"
           onClick={() => {
             setOpen(false);
           }}
         >
-          <span ref={instagramLinkRef}>3/ Instagram</span>
+          <div className="hidden link">
+            <span ref={instagramLinkRef}>3/ Instagram</span>
+          </div>
         </Link>
 
         <div className="pictureContainer absolute hidden">

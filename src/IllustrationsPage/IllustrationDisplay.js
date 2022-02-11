@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // ProgressiveImage : allows to load a compressed version of an image before the good quality one -> improves performance
 import ProgressiveImage from "react-progressive-image";
 // React Router
-import { Link } from "react-router-dom";
+import { Link } from "wouter";
 
 export default function IllustrationDisplay(props) {
   const [hovered, setHovered] = useState(false);
@@ -10,7 +10,7 @@ export default function IllustrationDisplay(props) {
 
   return (
     <div id="IllustrationDisplay">
-      <Link to={`/illustrations/${illu.id}`}>
+      <Link href={`/illustrations/${illu.id}`}>
         <div
           className="illustration relative"
           key={illu.id}

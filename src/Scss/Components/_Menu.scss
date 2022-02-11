@@ -8,8 +8,9 @@
     cursor: auto;
     padding: 40vh 0 5vh 60px;
 
-    a {
+    .link {
       color: $seashell;
+      cursor: pointer;
 
       &:hover {
         color: $charleston;

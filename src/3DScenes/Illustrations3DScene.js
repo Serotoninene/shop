@@ -1,7 +1,6 @@
 import React from "react";
 // 3D Components
 import IllustrationPlane from "../3DElements/IllustrationPlane";
-
 // Assets
 import { illustrationsData } from "../Utilitaries/Data/illustrationsData";
 

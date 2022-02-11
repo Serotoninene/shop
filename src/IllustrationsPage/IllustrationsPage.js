@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import ErrorBoundary from "../Utilitaries/Tools/ErrorBoundary";
 // React Router
-import { Link } from "react-router-dom";
+import { Link } from "wouter";
 // Gsap
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -42,7 +42,6 @@ export default function IllustrationsPage() {
         <h3 className="text-center"> Illustrations </h3>
         <div className="line"> </div>
       </div>
-      <Link to="/test">Click</Link>
       <div
         ref={illustrationDisplayRef}
         className="illustrationsDisplay flex absolute"

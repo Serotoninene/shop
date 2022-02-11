@@ -1,5 +1,5 @@
 // React-Router Components
-import { Routes, Route } from "react-router-dom";
+import { Switch, Route } from "wouter";
 // Frames
 import Homepage from "./Homepage/Homepage";
 import Test from "./Test/Test";
@@ -16,12 +16,12 @@ function App() {
   return (
     <div id="App">
       <Navbar />
-      <Routes>
-        <Route exact path="/" element={<Homepage />} />
-        <Route exact path="/test" element={<Test />} />
-        <Route exact path="/illustrations" element={<IllustrationsPage />} />
-        <Route exact path="/illustrations/:id" element={<IllustrationPage />} />
-      </Routes>
+      <Switch>
+        <Route path="/" component={Homepage} />
+        <Route path="/test" component={Test} />
+        <Route path="/illustrations" component={IllustrationsPage} />
+        {/* <Route path="/illustrations/:id" component={IllustrationPage} /> */}
+      </Switch>
       <FPSStats />
     </div>
   );

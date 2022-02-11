@@ -1,24 +1,35 @@
 // ThreeJs
 import * as THREE from "three";
 // React Three Fiber
-import { extend } from "@react-three/fiber";
-import { shaderMaterial } from "@react-three/drei";
+import {
+  extend
+} from "@react-three/fiber";
+import {
+  shaderMaterial
+} from "@react-three/drei";
 import glsl from "glslify";
 
 const WaveShaderMaterial = shaderMaterial(
   // Uniforms
   {
     uTime: 0,
-    uColor: new THREE.Color(0.0, 0.0, 0.0),
     uTexture: new THREE.Texture(),
+    uNoiseFreq: 2.0,
+    uNoiseAmp: 10.0,
+    uSpeed: 0.7,
+    uDistorsion: 0.1,
   },
   // Vertex Shader
-  glsl`
+  glsl `
     precision mediump float ;
     varying vec2 vUv;
     varying float vWave;
-    
+
     uniform float uTime;
+    // Altering the wave effect
+    uniform float uSpeed;
+    uniform float uNoiseFreq;
+    uniform float uNoiseAmp;
 
     //	Simplex 3D Noise 
     //	by Ian McEwan, Ashima Arts
@@ -96,34 +107,31 @@ const WaveShaderMaterial = shaderMaterial(
     }
    
     void main() {
-    vUv = uv;
-    vec3 pos = position;
-    vWave = pos.z;
-
-    float noiseFreq = 1.5;
-    float noiseAmp = 1.0; 
-    vec3 noisePos = vec3(pos.x, pos.y * noiseFreq + uTime*0.5, pos.z *noiseFreq +uTime*0.5);
-    pos.z += snoise(noisePos) * noiseAmp;
-  
-    gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.);
-  }`,
+      vUv = uv;
+      vec3 pos = position;
+      vec3 noisePos = vec3(pos.x * uNoiseFreq + uTime * uSpeed , pos.y, pos.z);
+      pos.z += snoise(noisePos) * uNoiseAmp;
+      vWave = pos.z;
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);  
+    }`,
   // Fragment Shader
-  glsl`
-  precision mediump float ;
-  uniform float uTime;
-  uniform vec3 uColor;
-  uniform sampler2D uTexture;
+  glsl `
+  precision mediump float;
+    uniform sampler2D uTexture;
+    uniform float uDistorsion;
 
-  varying vec2 vUv;
-  varying float vWave;
-
-  void main() {
-    float wave = vWave * 0.1;
-    vec3 texture = texture2D(uTexture, vUv + vWave).rgb;     
-    gl_FragColor = vec4(texture, 1.0);  }`
+    varying vec2 vUv;
+    varying float vWave;
+    
+    void main() {
+      float wave = vWave * 0.2;
+      vec3 texture = texture2D(uTexture, vUv + vWave * uDistorsion).rgb;
+      gl_FragColor = vec4(texture, 1.0); 
+    }
+  `
 );
 extend({
-  WaveShaderMaterial,
+  WaveShaderMaterial
 });
 
 export default WaveShaderMaterial;

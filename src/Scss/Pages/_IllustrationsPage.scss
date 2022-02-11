@@ -1,12 +1,10 @@
 #IllustrationsPage {
   position: fixed;
   width: 100vw;
-  height: calc(100vh - 60px);
-  top: 60px;
-  left: 0;
+  height: 300vh;
   background-color: $seashell;
   padding: 20px 50px;
-  overflow: hidden;
+  // overflow: scroll;
 
   .titleArchive {
     padding-top: 20px;

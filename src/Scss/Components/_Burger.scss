@@ -1,0 +1,30 @@
+#Burger {
+  cursor: pointer;
+  height: 17px;
+  padding: 4px 0;
+  z-index: 2;
+
+  .line {
+    width: 25px;
+    height: 1px;
+    background-color: $spaceCadet;
+    border-radius: 20px;
+    transition: transform ease-in 0.2s;
+  }
+
+  // animation when Hovered
+  &:hover .line {
+    background-color: #c97062;
+  }
+
+  // Animation when clicked
+  .closingIcon.line:first-of-type {
+    transform: rotate3d(0, 1, 1, 45deg) translate3d(0, 5px, 0px);
+  }
+  .closingIcon.line:nth-of-type(2) {
+    transform: rotate3d(1, 1, 0, 90deg);
+  }
+  .closingIcon.line:last-of-type {
+    transform: rotate3d(0, 1, 1, -45deg) translate3d(0px, -4px, 0px);
+  }
+}

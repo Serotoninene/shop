@@ -12,7 +12,7 @@
 // Frames
 @import "./Frames/HeroBanner";
 @import "./Frames/Presentation";
-@import "./Frames/IllustrationShowcase";
+@import "./Frames/Model3D";
 // Components
 @import "./Components/Navbar";
 @import "./Components/ShowcaseOneIllu";
@@ -21,4 +21,9 @@
 @import "./Components/IllustrationDisplay";
 @import "./Components/SideBarCart";
 @import "./Components/Circle";
-@import "./Components/Canvas";
+@import "./Components/Burger";
+@import "./Components//Menu";
+
+// React-var-gui
+@import "/node_modules/react-dat-gui/dist/index.css";
+@import "./Setup/datGui";

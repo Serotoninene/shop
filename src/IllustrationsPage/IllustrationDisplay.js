@@ -32,10 +32,10 @@ export default function IllustrationDisplay(props) {
                 : "none"
             }`}
           >
-            Click to view{" "}
-          </div>{" "}
-        </div>{" "}
-      </Link>{" "}
+            Click to view
+          </div>
+        </div>
+      </Link>
     </div>
   );
 }

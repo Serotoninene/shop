@@ -1,18 +1,23 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // Components
 import Model3D from "./Model3D";
 // gsap
-import gsap, { Linear, Power1, Power3 } from "gsap";
+import gsap, { Linear, Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { EasePack } from "gsap/EasePack";
 // Assets
 import scrollIndicator from "../Assets/Icons/scrollIndicator.svg";
+// Utilitaries
+import useWindowSize from "../Utilitaries/Hooks/useWindowSize";
 
 export default function HeroBanner() {
   const subPictureRef = useRef();
   const titleContainerRef = useRef();
   const titleRef = useRef();
   const scrollIndicatorRef = useRef();
+  const { width } = useWindowSize();
+
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     // Fragment the title into letters
@@ -32,7 +37,9 @@ export default function HeroBanner() {
       ease: Power3.easeIn,
       autoRemoveChildren: true,
     });
-    let scrollIndicatoTl = gsap.timeline({ repeat: -1 });
+    let scrollIndicatoTl = gsap.timeline({
+      repeat: -1,
+    });
     let titleLetters = gsap.utils.toArray(".letter");
 
     // Introduction of the letters
@@ -56,7 +63,7 @@ export default function HeroBanner() {
       titleContainerRef.current,
       {
         scaleY: 1,
-        yPercent: -300,
+        y: "-30vh",
       },
       ">"
     );
@@ -102,7 +109,12 @@ export default function HeroBanner() {
   return (
     <div
       id="HeroBanner"
-      className="section flex-column justify-end align-center hidden relative"
+      className={`section flex-column justify-end align-between hidden relative ${
+        loaded ? "" : "transparent"
+      }`}
+      onLoad={() => {
+        setLoaded(true);
+      }}
     >
       <h1
         ref={titleContainerRef}
@@ -112,7 +124,6 @@ export default function HeroBanner() {
           Serotoninene
         </span>
       </h1>
-
       <div className="scrollIndicator absolute hidden">
         <img
           ref={scrollIndicatorRef}
@@ -124,6 +135,9 @@ export default function HeroBanner() {
       <div ref={subPictureRef} className="subPicture absolute">
         <Model3D />
       </div>
+      {/* This overlay only purpose is to allow for scrollability on mobile 
+      with touch screen, the canvas would block it */}
+      <div className={width < 900 ? "overlay" : "none"}></div>
     </div>
   );
 }

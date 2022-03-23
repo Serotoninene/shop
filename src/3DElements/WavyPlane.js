@@ -1,13 +1,9 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef } from "react";
 // ThreeJs
 import { TextureLoader } from "three/src/loaders/TextureLoader";
 // React Three Fiber
-import { useFrame, useLoader, useThree } from "@react-three/fiber";
+import { useFrame, useLoader } from "@react-three/fiber";
 import WaveShaderMaterial from "../Utilitaries/Shaders/WaveShaderMaterial";
-// Gsap
-import gsap, { Power3 } from "gsap";
-// Utils
-import lerp from "../Utilitaries/Tools/lerp";
 
 export default function WavyPlane(props) {
   const waveShaderRef = useRef();
@@ -15,13 +11,13 @@ export default function WavyPlane(props) {
   const [image] = useLoader(TextureLoader, ["Venus.jpg"]);
 
   // Setting up the options for the debug ui
-  const [opts, setOpts] = useState({
+  const opts = {
     // Uniforms of the wave Shader Material
     uNoiseFreq: 2.0,
     uNoiseAmp: 0.1,
     uSpeed: 0.8,
     uDistorsion: 0.5,
-  });
+  };
 
   // Updating time in the mesh shader so it can animates
   useFrame(({ clock }) => {
@@ -38,7 +34,6 @@ export default function WavyPlane(props) {
         uNoiseAmp={opts.uNoiseAmp}
         uSpeed={opts.uSpeed}
         uDistorsion={opts.uDistorsion}
-        // wireframe={true}
       />
     </mesh>
   );

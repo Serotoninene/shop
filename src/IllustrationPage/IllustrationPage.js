@@ -1,151 +1,188 @@
-import React, { useState, useEffect } from "react";
-// React Router
-import { useParams } from "react-router-dom";
-// ProgressiveImage : allows to load a compressed version of an image before the good quality one -> improves performance
-import ProgressiveImage from "react-progressive-image";
+import React, { useState, useRef, useLayoutEffect } from "react";
+// Wouter
+import { useRoute } from "wouter";
 //  Stripe
 import StripeCheckout from "react-stripe-checkout";
 // Gsap
-import gsap, { Power1, Power3 } from "gsap";
+import gsap, { Power1 } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 // Components
 import Button from "../Components/Button";
 // Assets
 import { illustrationsData } from "../Utilitaries/Data/illustrationsData";
+import arrow from "../Assets/Icons/arrow.svg";
 
 export default function IllustrationPage(props) {
   gsap.registerPlugin(ScrollTrigger);
-  const { id } = useParams();
+  const [backgroundLoaded, setBackgroundLoaded] = useState(false);
+  const [match, params] = useRoute("/illustrations/:id");
+  const id = params.id;
+  const CTAContainerRef = useRef();
+  const mainImgRef = useRef();
+  const secondaryImgRef = useRef();
+  const arrowRef = useRef();
+
   let illustrationDisplayed = {};
 
+  // Picks up the correct illustration to be displayed
   illustrationsData.forEach((illu) => {
     if (illu.id === Number(id)) {
       illustrationDisplayed = illu;
     }
   });
-
   const product = {
     name: illustrationDisplayed.title,
     price: illustrationDisplayed.price,
     productBy: "Serotoninene",
   };
 
-  useEffect(() => {
-    // Triggers
-    const tl = gsap.timeline({
-      defaults: {
-        ease: Power3.easeOut,
-        duration: 3,
-      },
-    });
-    tl.to(
-      ".CTA-container",
+  // Main animations
+  useLayoutEffect(() => {
+    // Timelines
+    const mainTl = gsap.timeline(
       {
-        yPercent: -90,
+        defaults: {
+          ease: Power1.easeOut,
+        },
+        scrollTrigger: {
+          trigger: "#IllustrationPage",
+          start: "top top",
+          end: `bottom bottom`,
+          id: "illustrationPageAnim",
+          snap: 1 / 2,
+          pin: true,
+          scrub: true,
+          pinSpacing: false,
+        },
+      },
+      []
+    );
+
+    // Scrolltriggered animation - main one
+    // first move
+    mainTl.to(CTAContainerRef.current, {
+      yPercent: -90,
+    });
+    mainTl.to(
+      mainImgRef.current,
+      {
+        yPercent: -100,
       },
       "<"
     );
-    tl.to(
-      ".secondaryImg",
+    mainTl.to(
+      secondaryImgRef.current,
+      {
+        yPercent: -40,
+      },
+      "<"
+    );
+    mainTl.to(
+      arrowRef.current,
+      {
+        yPercent: -300,
+      },
+      "<"
+    );
+    // second move
+    mainTl.to(
+      mainImgRef.current,
+      {
+        yPercent: -200,
+      },
+      ">1"
+    );
+    mainTl.to(
+      secondaryImgRef.current,
       {
         yPercent: -125,
       },
       "<"
     );
-    tl.to(
-      ".mainImg",
+    mainTl.to(
+      arrowRef.current,
       {
-        yPercent: -200,
-        ease: Power3.easeOut,
-        duration: 5,
+        yPercent: -1000,
       },
       "<"
     );
 
-    ScrollTrigger.create({
-      animation: tl,
-      trigger: "#IllustrationPage",
-      start: "top top",
-      end: `bottom+=200vh bottom`,
-      id: "illustrationPageAnim",
-      snap: 1,
-      // pin: true,
-      scrub: true,
-      markers: true,
-      pinSpacing: false,
-    });
+    return () => {
+      ScrollTrigger.getAll().forEach((ST) => ST.kill());
+      gsap.globalTimeline.clear();
+    };
   }, []);
 
-  // const makePayment = (token) => {
-  //   const body = {
-  //     token: token,
-  //     product: product,
-  //   };
-  //   const headers = {
-  //     "Content-Type": "application/json",
-  //   };
-  //   return fetch(`http://localhost:8282/payment`, {
-  //     method: "POST",
-  //     headers: headers,
-  //     body: JSON.stringify(body),
-  //   })
-  //     .then((response) => {
-  //       console.log("RESPONSE : ", response);
-  //       const { status } = response;
-  //       console.log("STATUS : ", status);
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
+  // Linking with the back end
+  const makePayment = (token) => {
+    const body = {
+      token: token,
+      product: product,
+    };
+    const headers = {
+      "Content-Type": "application/json",
+    };
+    return fetch(`https://serotonineneshop.herokuapp.com/payment`, {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify(body),
+    })
+      .then((response) => {
+        console.log("RESPONSE : ", response);
+        const { status } = response;
+        console.log("STATUS : ", status);
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div id="IllustrationPage" className="relative">
-      <div className="frameContainer flex justify-end">
-        <ProgressiveImage
-          src={illustrationDisplayed.mockUp}
-          placeholder={illustrationDisplayed.compressedMockUp}
+      <div
+        className={`frameContainer flex justify-end relative ${
+          backgroundLoaded ? "" : "transparent"
+        }`}
+        style={{
+          backgroundImage: `url(${illustrationDisplayed.compressedMockUp})`,
+        }}
+        onLoad={() => {
+          setBackgroundLoaded(true);
+        }}
+      >
+        <div
+          ref={arrowRef}
+          className="arrow absolute flex justify-center align-center"
         >
-          {(src) => (
-            <img
-              src={src}
-              alt="the illustration shown in a frame"
-              className="img-fluid"
-            />
-          )}
-        </ProgressiveImage>
+          <img src={arrow} alt="arrow down"></img>
+        </div>
       </div>
-      <div className="absolute CTA-container flex-column">
-        <h2> Regard Brulant - A4 </h2>
+      <div ref={CTAContainerRef} className="absolute CTA-container flex-column">
+        <h2> {product.name} - A4 </h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus
-          purus tellus, cursus ut feugiat vel, convallis in nisl.Aenean lacinia
-          justo metus.Quisque ut aliquam sem.
+          Printed with high quality ink on 200g paper. Pieces numbered and
+          signed by hand.
         </p>
-        {/* <StripeCheckout
+        <p>Limited edition (20 illustrations)</p>
+        <StripeCheckout
           stripeKey={process.env.REACT_APP_KEY}
           token={makePayment}
           name="Buy Product"
           amount={product.price * 100}
           shippingAddress
           billingAddress
-        > */}
-        <Button content="Purchase a print" />
-        {/* </StripeCheckout> */}
-      </div>
-      <div className="mainImg img absolute">
-        <ProgressiveImage
-          src={illustrationDisplayed.img}
-          placeholder={illustrationDisplayed.compressedImg}
         >
-          {(src) => (
-            <img
-              src={src}
-              alt="amazing illustration of a girl with an eyepatch"
-              className="img-fluid"
-            />
-          )}
-        </ProgressiveImage>
+          <Button content="Purchase a print" />
+        </StripeCheckout>
       </div>
-      <div className="secondaryImg img absolute">
+
+      <div ref={mainImgRef} className="mainImg img absolute">
+        <img
+          src={illustrationDisplayed.img}
+          data-src="https://s-media-cache-ak0.pinimg.com/474x/50/1b/74/501b74902935b063816ea8e14f460ca0.jpg"
+          alt="amazing illustration of a girl with an eyepatch"
+          className="img-fluid"
+        />
+      </div>
+      <div ref={secondaryImgRef} className="secondaryImg img absolute">
         <img
           src={illustrationDisplayed.img}
           alt="amazing illustration of a girl with an eyepatch"

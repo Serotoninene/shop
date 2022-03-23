@@ -1,8 +1,6 @@
 #Homepage {
   background-color: $seashell;
   scroll-behavior: smooth;
-
-  .section {
-    scroll-snap-type: y proximity;
-  }
+  position: relative;
+  width: 100%;
 }

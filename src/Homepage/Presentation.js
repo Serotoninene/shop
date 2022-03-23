@@ -55,20 +55,23 @@ export default function Presentation() {
     <div id="Presentation">
       <article className="section img-fluid flex justify-between align-center">
         <h2 ref={titleRef}>
-          Le bal <br />
-          des <br />
-          <span> vampires </span>{" "}
-        </h2>{" "}
+          Explosion <br /> of <br />
+          <span> Colors </span>
+        </h2>
         <p ref={textRef}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus
+          Hey I'm Alex, been drawing for a while now and posting regularly on
+          instagram as Serotoninene. Here you'll find some of my best work and,
+          if you like it, you'll even be able to buy it. So please indulge
+          yourself in a little bit of art, craft and love from yours, truly.{" "}
+          {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus
           purus tellus, cursus ut feugiat vel, convallis in nisl.Aenean lacinia
           justo metus.Quisque ut aliquam sem.Nulla et porta mauris.Donec libero
-          nunc, cursus vitae mauris vitae, ullamcorper tincidunt felis.{" "}
-        </p>{" "}
-      </article>{" "}
+          nunc, cursus vitae mauris vitae, ullamcorper tincidunt felis. */}
+        </p>
+      </article>
       <section ref={linkRef} className="flex justify-center">
-        <Link href="/illustrations"> View Gallery </Link>{" "}
-      </section>{" "}
+        <Link href="/illustrations"> View Gallery </Link>
+      </section>
     </div>
   );
 }

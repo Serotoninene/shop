@@ -1,6 +1,3 @@
-// uuid
-import uuid from "react-uuid"
-
 // Assets --- Normal illustrations
 import almostNaked from "../../Assets/Images/almost_naked.jpg"
 import blaspheme from "../../Assets/Images/blaspheme.jpg"
@@ -44,8 +41,8 @@ import regardBrulantMockUpCompressed from "../../Assets/Images/mockupCompressed/
 
 const price = 20;
 
-export const illustrationsData = [, {
-    'id': 1,
+export const illustrationsData = [{
+    'id': 0,
     'title': "Blaspheme",
     'img': blaspheme,
     'mockUp': blasphemeMockUp,
@@ -55,37 +52,38 @@ export const illustrationsData = [, {
 
   },
   {
-    'id': 2,
+    'id': 1,
     'title': "Chuter",
     'img': chuter,
     'mockUp': chuterMockUp,
     'compressedImg': chuterCompressed,
     'compressedMockUp': chuterMockUpCompressed,
     'price': price,
+    'paragraphHP': "Lorem 1"
 
   },
   {
-    'id': 3,
+    'id': 2,
     'title': "Dos Nu",
     'img': dosNu,
     'mockUp': dosNuMockUp,
     'compressedImg': dosNuCompressed,
     'compressedMockUp': dosNuMockUpCompressed,
     'price': price,
-
+    'paragraphHP': "Lorem 2"
   },
   {
-    'id': 4,
+    'id': 3,
     'title': "Eyepatch",
     'img': eyepatch,
     'mockUp': eyepatchMockUp,
     'compressedImg': eyepatchCompressed,
     'compressedMockUp': eyepatchMockUpCompressed,
     'price': price,
-
+    'paragraphHP': "Lorem 3"
   },
   {
-    'id': 5,
+    'id': 4,
     'title': "Almost Naked",
     'img': almostNaked,
     'mockUp': almostNakedMockUp,
@@ -95,7 +93,7 @@ export const illustrationsData = [, {
 
   },
   {
-    'id': 6,
+    'id': 5,
     'title': "Geisha",
     'img': geisha,
     'mockUp': geishaMockUp,
@@ -105,8 +103,8 @@ export const illustrationsData = [, {
 
   },
   {
-    'id': 7,
-    'title': "Les Yeux Coulent",
+    'id': 6,
+    'title': "Pleurs",
     'img': yeuxCoulent,
     'mockUp': yeuxCoulentMockUp,
     'compressedImg': yeuxCoulentCompressed,
@@ -115,7 +113,7 @@ export const illustrationsData = [, {
 
   },
   {
-    'id': 8,
+    'id': 7,
     'title': "Regard Brulant",
     'img': regardBrulant,
     'mockUp': regardBrulantMockUp,
@@ -125,7 +123,7 @@ export const illustrationsData = [, {
 
   },
   {
-    'id': 9,
+    'id': 8,
     'title': "Venus",
     'img': venus,
     'mockUp': venusMockUp,

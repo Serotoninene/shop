@@ -1,21 +1,30 @@
-import { useEffect } from "react";
+import {
+  useEffect
+} from "react";
 // React Three Fiber
-import { useFrame, useThree } from "@react-three/fiber";
+import {
+  useFrame,
+  useThree
+} from "@react-three/fiber";
 // Gsap
-import gsap, { Power3 } from "gsap";
+import gsap, {
+  Power3
+} from "gsap";
 // Utils
-import lerp from "../../Utilitaries/Tools/lerp";
+import lerping from "../../Utilitaries/Tools/lerping";
 
 export default function HPCameraAnimation() {
-  const { camera } = useThree();
+  const {
+    camera
+  } = useThree();
 
   useFrame((state) => {
     // I save the coordinates of the mouse to use in my parralax
     let mouseX = state.mouse.x;
     let mouseY = state.mouse.y;
 
-    camera.position.x = lerp(camera.position.x, 27 + mouseX, 0.05);
-    camera.position.y = lerp(camera.position.y, -14 + mouseY, 0.05);
+    camera.position.x = lerping(camera.position.x, 27 + mouseX, 0.05);
+    camera.position.y = lerping(camera.position.y, -14 + mouseY, 0.05);
   });
 
   // Animating the camera on load
@@ -33,7 +42,7 @@ export default function HPCameraAnimation() {
     return () => {
       tl.kill();
     };
-  }, []);
+  });
 
   return null;
 }

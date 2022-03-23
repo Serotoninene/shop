@@ -8,7 +8,7 @@
     h2 {
       font-size: 6rem;
       font-family: "Avenir";
-      line-height: 6rem;
+      line-height: 7rem;
 
       span {
         font-family: "Didot";
@@ -46,6 +46,167 @@
     &:hover::after {
       width: 0%;
       left: 100%;
+    }
+  }
+}
+
+@media screen and (min-width: 1081px) {
+  #Presentation {
+    max-width: 1400px;
+    margin: 0 auto;
+
+    p {
+      max-width: 600px;
+    }
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  #Presentation {
+    padding: 100px;
+    article {
+      h2 {
+        font-size: 5rem;
+        line-height: 5rem;
+
+        span {
+          font-size: 5.2rem;
+        }
+      }
+
+      p {
+        font-size: 1.5rem;
+        line-height: 1.9rem;
+      }
+    }
+    a {
+      font-size: 4rem; //
+    }
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  #Presentation {
+    padding: 100px;
+    article {
+      h2 {
+        font-size: 5rem;
+        line-height: 5rem;
+
+        span {
+          font-size: 5.2rem;
+        }
+      }
+
+      p {
+        font-size: 1.5rem;
+        line-height: 1.9rem;
+      }
+    }
+    a {
+      font-size: 4rem; //
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  #Presentation {
+    padding: 50px;
+  }
+}
+
+@media screen and (max-width: 845px) {
+  #Presentation {
+    article {
+      h2 {
+        font-size: 3rem;
+        line-height: 4rem;
+
+        span {
+          font-size: 3.2rem;
+        }
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+      }
+    }
+    a {
+      font-size: 2.8rem; //
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #Presentation {
+    padding: 50px;
+
+    article {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 80%;
+
+      h2 {
+        font-size: 5rem; //
+        line-height: 5rem; //
+        width: 100%;
+        span {
+          font-size: 5.2rem; //
+        }
+      }
+
+      p {
+        width: auto;
+        font-size: 1.1rem; //
+        line-height: 1.7rem; //
+      }
+    }
+
+    a {
+      margin-top: 20px;
+      font-size: 2.5rem; //
+    }
+  }
+}
+
+@media screen and (max-width: 535px) {
+  #Presentation {
+    article {
+      h2 {
+        font-size: 4rem; //
+        line-height: 4.5rem; //
+        span {
+          font-size: 4.1rem; //
+        }
+      }
+    }
+
+    a {
+      font-size: 2.4rem; //
+    }
+  }
+}
+
+@media screen and (max-width: 370px) {
+  #Presentation {
+    article {
+      h2 {
+        font-size: 2rem;
+        line-height: 2rem;
+        span {
+          font-size: 2.2rem;
+        }
+      }
+      p {
+        font-size: 0.9rem;
+        line-height: 1.3rem;
+      }
+    }
+
+    a {
+      font-size: 2rem;
     }
   }
 }

@@ -6,11 +6,11 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import HeroBanner from "./HeroBanner.js";
 import IllustrationShowcase from "./IllustrationShowcase.js";
 import Presentation from "./Presentation.js";
+// Components
 import Footer from "../Components/Footer.js";
 
-export default function Homepage() {
-  const sections = gsap.utils.toArray(".section");
-  const sectionsLength = sections.length;
+export default function Homepage(props) {
+  const width = window.innerWidth;
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -19,9 +19,9 @@ export default function Homepage() {
       start: "top top",
       endTrigger: "#IllustrationShowcase",
       end: "bottom bottom",
-      snap: 1 / 4,
+      // snap: width <= 570 ? false : 1 / 4,
     });
-  }, []);
+  }, [width]);
 
   return (
     <div id="Homepage">

@@ -1,16 +1,15 @@
 import React, { Suspense } from "react";
 // React Three Fiber
 import { Canvas } from "@react-three/fiber";
-// Camera Controls
-import CameraControls from "./CameraControls";
 
 export default function CanvasContainer(props) {
-  const { fov, position } = props;
+  const { fov, position, orthographicCam } = props;
   return (
     <Canvas
+      orthographic={orthographicCam}
       camera={{
-        fov,
-        position,
+        fov: fov,
+        position: position,
       }}
     >
       <Suspense fallback={null}>{props.children}</Suspense>

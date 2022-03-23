@@ -1,4 +1,9 @@
 #App {
-  // height: 200vh;
   scroll-behavior: smooth;
+
+  .app {
+    position: relative;
+    // width: 100%;
+    // overflow-x: hidden;
+  }
 }

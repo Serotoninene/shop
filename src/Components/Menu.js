@@ -4,6 +4,8 @@ import { Link } from "wouter";
 import gsap, { Power3 } from "gsap";
 // Assets
 import blaspheme from "../Assets/Images/blaspheme.jpg";
+// Utils
+import useWindowSize from "../Utilitaries/Hooks/useWindowSize";
 
 export default function Menu(props) {
   const { open, setOpen } = props;
@@ -13,6 +15,9 @@ export default function Menu(props) {
   const aboutLinkRef = useRef();
   const instagramLinkRef = useRef();
   const illustrationRef = useRef();
+  const { width, height } = useWindowSize();
+
+  let percent = width < 1400 ? -100 : -90;
 
   useEffect(() => {
     const contentRefs = [
@@ -30,10 +35,12 @@ export default function Menu(props) {
         stagger: 0.2,
       });
       tl.to(contentRefs, {
-        yPercent: -100,
+        yPercent: percent,
         ease: Power3.easeOut,
         stagger: 0.1,
       });
+      // Disabling the scroll temporarily
+      document.body.style.overflow = "hidden";
     } else {
       tl.to(contentRefs, {
         yPercent: 100,
@@ -50,6 +57,7 @@ export default function Menu(props) {
         },
         ">-=0.02"
       );
+      document.body.style.overflow = "auto";
     }
   }, [open]);
 
@@ -64,7 +72,7 @@ export default function Menu(props) {
           }}
         >
           <div className="hidden link">
-            <span ref={illustrationLinkRef}>1/ Homepage</span>
+            <span ref={illustrationLinkRef}> 1 / Homepage </span>
           </div>
         </Link>
         <Link
@@ -74,20 +82,19 @@ export default function Menu(props) {
           }}
         >
           <div className="hidden link">
-            <span ref={aboutLinkRef}>2/ Illustrations</span>
+            <span ref={aboutLinkRef}> 2 / Illustrations </span>
           </div>
         </Link>
-        <Link
-          href="/illustrations/2"
+        <a
+          href="https://www.instagram.com/serotoninene/"
           onClick={() => {
             setOpen(false);
           }}
         >
           <div className="hidden link">
-            <span ref={instagramLinkRef}>3/ Instagram</span>
+            <span ref={instagramLinkRef}> 3 / Instagram </span>
           </div>
-        </Link>
-
+        </a>
         <div className="pictureContainer absolute hidden">
           <img
             ref={illustrationRef}

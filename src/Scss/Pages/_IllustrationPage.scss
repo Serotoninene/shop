@@ -1,58 +1,214 @@
 #IllustrationPage {
   background-color: $seashell;
-  position: fixed;
-  overflow: hidden;
+  height: 300vh;
+  overflow-x: hidden;
 
   .frameContainer {
     height: 100vh;
-    width: 100vw;
+    // width: 100%;
     background-size: contain;
     background-repeat: no-repeat;
     background-position-x: 22vw;
     background-position-y: 20px;
-    img {
-      width: 80vw;
+    transition: opacity 1s ease-in;
+
+    .arrow {
+      right: 60px;
+      bottom: 60px;
+      width: 50px;
+      height: 70px;
+      padding: 5px 7px;
+      border-radius: 50px;
+      background-color: $seashell;
+
+      img {
+        width: 100%;
+      }
     }
   }
 
+  // Call to action container
   .CTA-container {
     background-color: $seashell;
     padding: 50px 30px;
-    width: 35vw;
-    top: calc(100% - 110px);
+    width: 33vw;
+    top: calc(100vh - 110px);
     left: 30px;
-
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     h2 {
-      font-size: 3rem;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      font-family: "NewYork";
     }
 
     p {
       font-family: "Didot";
-      font-family: 1rem;
+      font-size: 1rem;
       line-height: 1.7rem;
-      margin: 50px 0;
+      margin-bottom: 20px;
+
+      &:first-of-type {
+        font-size: 1.2rem;
+      }
     }
 
     #Button {
-      padding: 20px auto;
+      margin-top: 5px;
+      padding: 20px 20px;
     }
   }
 
-  .img {
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  }
-
   .mainImg {
-    width: 40vw;
-    height: 95%;
-    bottom: 2%;
+    width: 37vw;
+    height: 95vh;
+    top: 100vh;
     left: 40vw;
     overflow-y: hidden;
   }
 
   .secondaryImg {
     width: 25vw;
-    top: 100%;
+    top: 100vh;
     left: 70vw;
+
+    .img {
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  #IllustrationPage {
+    .frameContainer {
+      background-position-x: 5vw;
+      background-position-y: bottom;
+    }
+
+    .CTA-container {
+      width: 350px;
+      p {
+        font-size: 0.8rem;
+        line-height: 1.4rem;
+      }
+    }
+  }
+}
+@media screen and (max-width: 882px) {
+  #IllustrationPage {
+    .mainImg {
+      left: 45vw;
+    }
+  }
+}
+@media screen and (max-width: 800px) {
+  #IllustrationPage {
+    .frameContainer {
+      background-position-y: center;
+    }
+  }
+}
+@media screen and (max-width: 700px) {
+  #IllustrationPage {
+    .frameContainer {
+      background-position-x: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 620px) {
+  #IllustrationPage {
+    height: 100vh;
+    overflow: hidden;
+
+    .frameContainer {
+      background-position-y: 0;
+      background-position-x: center;
+    }
+
+    .mainImg {
+      display: none;
+    }
+
+    .secondaryImg {
+      display: none;
+    }
+
+    .CTA-container {
+      top: 98vh;
+      left: 0;
+      height: 50vh;
+      width: 100%;
+      padding: 30px;
+      justify-content: space-around;
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 0.8rem;
+        line-height: 1.4rem;
+        &:first-of-type {
+          font-size: 1rem;
+        }
+      }
+
+      #Button {
+        padding: 10px;
+      }
+    }
+  }
+}
+
+@media screen and(max-width:500px) {
+  #IllustrationPage .frameContainer {
+    background-size: 110%;
+  }
+}
+
+@media screen and(max-width:465px) {
+  #IllustrationPage .frameContainer {
+    background-size: 120%;
+  }
+
+  #IllustrationPage .CTA-container {
+    top: 93vh;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  // no more scroll : the background stays up, takes half the space and the CTA is down, takes the other half
+  #IllustrationPage {
+    height: 100vh;
+    overflow: hidden;
+
+    .frameContainer {
+      background-size: 150%;
+    }
+
+    .CTA-container {
+      top: 97vh;
+      left: 0;
+      height: 50vh;
+      width: 100%;
+      padding: 30px;
+      justify-content: space-around;
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 0.8rem;
+        line-height: 1.4rem;
+        &:first-of-type {
+          font-size: 1rem;
+        }
+      }
+
+      #Button {
+        padding: 10px;
+      }
+    }
   }
 }

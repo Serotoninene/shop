@@ -3,7 +3,7 @@
     background-color: $silverPink;
     top: 0;
     left: 100vw;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     cursor: auto;
     padding: 40vh 0 5vh 60px;
@@ -11,6 +11,7 @@
     .link {
       color: $seashell;
       cursor: pointer;
+      // z-index: 10;
 
       &:hover {
         color: $charleston;
@@ -19,7 +20,7 @@
 
     span {
       display: inline-block;
-      font-family: "NewYork";
+      font-family: "NewYork", "Didot";
       font-size: 5rem;
       transform: translate(0, 100%);
     }
@@ -28,9 +29,10 @@
       width: 30vw;
       right: 60px;
       top: 60px;
+      z-index: -1;
 
       img {
-        transform: translate(0, 110%);
+        transform: translate(0, 100%);
       }
     }
   }
@@ -39,7 +41,44 @@
     background-color: $cinerous;
     top: 0;
     left: 100vw;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
+  }
+}
+
+@media screen and (max-width: 870px) {
+  #Menu {
+    .menu {
+      .pictureContainer {
+        width: 80vw;
+      }
+    }
+  }
+}
+@media screen and (max-width: 700px) {
+  #Menu {
+    .menu {
+      padding-top: 50vh;
+      .link span {
+        font-size: 4rem;
+      }
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  #Menu {
+    .menu .link span {
+      font-size: 3.5rem;
+    }
+  }
+}
+@media screen and (max-width: 400px) {
+  #Menu {
+    .menu {
+      padding-top: 60vh;
+      .link span {
+        font-size: 3rem;
+      }
+    }
   }
 }

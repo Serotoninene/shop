@@ -1,27 +1,27 @@
 #IllustrationsPage {
-  position: fixed;
-  width: 100vw;
-  height: 300vh;
+  // width: 100vw;
+  height: 100vh;
   background-color: $seashell;
-  padding: 20px 50px;
-  // overflow: scroll;
 
-  .titleArchive {
-    padding-top: 20px;
-    .line {
-      height: 1px;
-      width: 40%;
-      background-color: $spaceCadet;
+  .text {
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+
+    h1 {
+      font-size: 5rem;
+      font-family: "NewYork", "Prettywise", "Didot";
     }
-    h3 {
-      margin: 20px 0;
+
+    p {
+      font-size: 0.8rem;
+      font-family: "Didot";
     }
   }
 
-  .illustrationsDisplay {
-    top: 22vh;
-    left: 50px;
-    padding-top: 20px;
-    width: auto;
+  canvas {
+    height: 100%;
   }
 }

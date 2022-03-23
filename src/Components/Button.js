@@ -1,12 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link, useLocation } from "wouter";
 
 export default function Button(props) {
   const { content, linkTo } = props;
-  const [hovered, setHovered] = useState(true);
+  const [location, setLocation] = useLocation();
+  const redirect = () => {
+    linkTo && setLocation(linkTo);
+  };
 
   return (
-    <div id="Button" className="relative flex justify-center">
-      <a href={linkTo}> {content} </a>{" "}
+    <div
+      id="Button"
+      className="relative flex justify-center"
+      onClick={() => {
+        redirect();
+      }}
+    >
+      <Link href={`/illustrations`}> {content} </Link>
     </div>
   );
 }

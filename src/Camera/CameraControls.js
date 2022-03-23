@@ -24,9 +24,9 @@ export default function CameraControls(props) {
     <orbitControls
       ref={controls}
       args={[camera, domElement]}
-      enablePan={false}
+      enablePan={on}
       enableZoom={on}
-      enableRotate={false}
+      enableRotate={on}
     />
   );
 }

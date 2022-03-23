@@ -1,5 +1,6 @@
 #HeroBanner {
   height: 100vh;
+  width: 100%;
   padding-bottom: 30px;
 
   h1 {
@@ -9,11 +10,11 @@
     line-height: 4rem;
     padding-top: 4rem;
     width: 100%;
-    font-family: "NewYork";
+    font-family: "Prettywise", "Avenir";
 
     .letter {
-      font-family: "NewYork";
-      font-style: italic;
+      font-family: "NewYork", "Prettywise", "Didot";
+      // font-style: italic;
       display: inline-block;
     }
 
@@ -24,12 +25,6 @@
       font-style: italic;
       padding-left: 0.5rem;
     }
-  }
-
-  .scrollIndicatorContainer {
-    right: 60px;
-    bottom: 0px;
-    width: 100px;
   }
 
   .scrollIndicator {
@@ -52,6 +47,109 @@
     width: 100%;
     height: 100vh;
     outline: none;
-    // background-color: $cinerous;
+  }
+
+  .overlay {
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    position: absolute;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  #HeroBanner {
+    h1 {
+      font-size: 13vw;
+      line-height: 10vw;
+    }
+  }
+}
+
+@media screen and (min-width: 1900px) {
+  #HeroBanner {
+    h1 {
+      font-size: 13vw;
+      line-height: 6vw;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  #HeroBanner {
+    h1 {
+      padding-top: 4.5rem;
+      font-size: 8.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 845px) {
+  #HeroBanner {
+    h1 {
+      padding-top: 5rem;
+      font-size: 7.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #HeroBanner {
+    h1 {
+      padding-top: 5.5rem;
+      font-size: 6.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #HeroBanner {
+    h1 {
+      padding-top: 6rem;
+      font-size: 5.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 415px) {
+  #HeroBanner {
+    h1 {
+      line-height: 7rem;
+      font-size: 4rem;
+      letter-spacing: -0.25rem;
+
+      .letter:nth-last-child(1),
+      .letter:nth-last-child(2) {
+        font-family: "Didot";
+        font-size: 2rem;
+        font-style: italic;
+        padding-left: -0.15;
+      }
+    }
+
+    .scrollIndicator {
+      bottom: 50px;
+      width: 50px;
+    }
+  }
+}
+
+@media screen and (max-width: 376px) {
+  #HeroBanner {
+    h1 {
+      line-height: 5rem;
+      font-size: 3.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 281px) {
+  #HeroBanner {
+    h1 {
+      line-height: 4rem;
+      font-size: 3rem;
+    }
   }
 }
